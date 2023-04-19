@@ -33,11 +33,13 @@ app.get("/api/:date", (req, res) => {
   let input = req.params.date;
   var dt = null;
   var isValid = true;
-  if (input.includes('-')) {
-      dt = new Date(input);
-  } else {
-      dt = new Date(Number(input));
-  }
+  
+  if(isNaN(input))
+    dt = new Date(Date.parse(input));
+  else
+    dt = new Date(Number(input));
+  //console.log(dt);
+
   if (dt == 'Invalid Date')
       isValid = false;
   //console.log(dt);
