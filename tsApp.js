@@ -26,7 +26,7 @@ app.get("/api/:date", (req, res) => {
     } else {
         let unix = dt.getTime();
         let utc = dt.toUTCString();
-        res.json({ "unix": `${unix}`, "utc": `${utc}` });
+        res.json({ "unix": unix, "utc": `${utc}` });
     }
 });
 
@@ -34,5 +34,5 @@ app.get("/api/", (req, res) => {
     let dt = new Date();
     let unix = dt.getTime();
     let utc = dt.toUTCString();
-    res.json({ "unix": `${unix}`, "utc": `${utc}` });
+    res.json({ "unix": unix, "utc": `${utc}` });
 });
